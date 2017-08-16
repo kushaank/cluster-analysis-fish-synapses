@@ -12,11 +12,13 @@ from sklearn.cluster import KMeans
 import pylab as p
 import mpl_toolkits.mplot3d.axes3d as p3
 from sklearn import metrics
-
+import matplotlib.pyplot as plt
+from tabulate import tabulate
+import math
 
 directory = "Dataset"
+plt.ioff()
 
-print("test")
 subfolders = [os.path.relpath(f, directory) for f in os.scandir(directory) if f.is_dir() ]    
 pre = dict.fromkeys(subfolders)
 post = dict.fromkeys(subfolders)
@@ -38,12 +40,13 @@ for key in pre:
     pre_df = pre[key]
     pre_df.drop(pre_df[pre_df.override != 7].index, inplace=True)
     pre_intensities[key] = pre[key][['X','Y','Z']]
+    break
 
 for key in post:  
     post_df = post[key]
     post_df.drop(post_df[post_df.override != 7].index, inplace=True)
     post_intensities[key] = post[key][['X','Y','Z']]
-
+    break
 #==============================================================================
 # Rot_l1: 2016-01-16_A
 # Rot_l2: 2017-03-16_A
@@ -86,7 +89,6 @@ Rot_nl3 = np.array([[0.995535, 0.094183, 0.006272, -60.612293],
                     [0.000000, 0.000000, 0.000000, 1.000000]])
     
 rotation_matrices = {"2016-01-16_A": Rot_l1, "2017-03-16_A": Rot_l2, "2017-03-17_B": Rot_l3, "2017-02-02_A": Rot_nl1, "2017-03-29_C": Rot_nl2, "2017-04-12_A": Rot_nl3} 
-print("checkpoint")
 #==============================================================================
 # for key,value in post_intensities.items():
 #     rotation_matrix = rotation_matrices[key]
@@ -98,59 +100,17 @@ print("checkpoint")
 #         value.ix[i] = to_rotate[:-1]
 #==============================================================================
 
-print("checkpoint1")    
 
-    #print(value.iloc[0])
-#==============================================================================
-# print("checkpoint")
-# kmeans = KMeans(n_clusters=5, random_state=0).fit(pre_intensities["2016-01-16_A"].as_matrix())
-# print(kmeans.labels_)
-# centroids = kmeans.cluster_centers_
-# print(centroids)
-# print('Silhouette Coefficient: %0.3f'
-#       % metrics.silhouette_score(pre_intensities["2016-01-16_A"].as_matrix(), kmeans.labels_))
-# #==============================================================================
-# # fig = plt.figure()
-# # ax = fig.add_subplot(111, projection='3d')
-# #==============================================================================
-# x = np.array(pre_intensities["2016-01-16_A"]['X'])
-# x = [int(i) for i in x]
-# y = np.array(pre_intensities["2016-01-16_A"]['Y'])
-# y = [int(i) for i in y]
-# z = np.array(pre_intensities["2016-01-16_A"]['Z'])
-# z = [int(i) for i in z]
-# 
-# #==============================================================================
-# # ax.scatter(x,y,z, marker="s", c=kmeans.labels_, s=40, cmap="RdBu")
-# #==============================================================================
-# 
-# fig=p.figure()
-# ax = p3.Axes3D(fig)
-# # scatter3D requires a 1D array for x, y, and z
-# # ravel() converts the 100x100 array into a 1x10000 array
-# ax.scatter3D(x,y,z, c=kmeans.labels_)
-# ax.set_xlabel('X')
-# ax.set_ylabel('Y')
-# ax.set_zlabel('Z')
-# p.show()
-# 
-# kmeans = KMeans(n_clusters=5, random_state=0).fit(post_intensities["2016-01-16_A"].as_matrix())
-# print(kmeans.labels_)
-# centroids = kmeans.cluster_centers_
-# print(centroids)
-# 
-# print('Silhouette Coefficient: %0.3f'
-#       % metrics.silhouette_score(post_intensities["2016-01-16_A"].as_matrix(), kmeans.labels_))
-#==============================================================================
+
 '''
     plots the clusters given the dataframe and the labels obtained from running k means
 '''
-def plot_clusters(dataframe, labels, month, state):
+def plot_clusters(dataframe, labels, month, state, num_clusters):
     x = np.array(dataframe['X'], dtype=np.float32)
     y = np.array(dataframe['Y'], dtype=np.float32)
     z = np.array(dataframe['Z'],dtype=np.float32)
    
-    fig=p.figure()
+    fig=plt.figure()
     ax = p3.Axes3D(fig)
     # scatter3D requires a 1D array for x, y, and z
     # ravel() converts the 100x100 array into a 1x10000 array
@@ -159,7 +119,8 @@ def plot_clusters(dataframe, labels, month, state):
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
     ax.set_title(state+" "+month)
-    p.show(state+" "+month)
+    plt.savefig('Results/%s/%d/%s/%s stimuli for %s, total clusters: %d' % (month,n_clusters,state,state, month, num_clusters))
+    #p.show(state+" "+month)
     
 '''
     runs k means on a given dataframe from the biology data set
@@ -173,21 +134,88 @@ def run_kmeans(dataframe, num_clusters, month, state):
     print(state+ " " + month+":"+'\n')
     print('Silhouette Coefficient: %0.3f'
           % metrics.silhouette_score(dataframe.as_matrix(), kmeans.labels_))
-    return kmeans.labels_, centroids
 
+    return kmeans.labels_, centroids, kmeans.n_clusters, kmeans.inertia_
+
+
+def plot_histogram(dataframe, labels, month, state, n_clusters):
+    cluster_points = {i: dataframe.iloc[np.where(labels == i)] for i in range(n_clusters)}
+    print(dataframe.shape)
+    for key, value in cluster_points.items():
+        
+        #auto binning
+        hist, bin_edges = np.histogram(value[['raw core']],bins='auto')
+        print(hist, bin_edges)
+        fig = plt.figure()
+        ax=fig.add_subplot(211)
+        ax.bar(bin_edges[:-1], hist, width=100)
+        ax.set_title("Histogram with 'auto' bins")
+        fig.savefig('Results/%s/%d/%s/%s stimuli for %s, total clusters: %d, current cluster: %d' % (month,n_clusters,state,state,month,n_clusters, key))
+        
+        #3 bins
+        hist, bin_edges = np.histogram(value[['raw core']],bins=3)
+        print(hist, bin_edges)
+        fig = plt.figure()
+        ax=fig.add_subplot(211)
+        ax.bar(bin_edges[:-1], hist, width=100)
+        ax.set_title("Histogram with 3 bins")
+        fig.savefig('Results/%s/%d/%s/%s stimuli for %s, total clusters: %d, current cluster: %d' % (month,n_clusters,state,state,month,n_clusters, key))
+        
+        
+        #5 bins
+        hist, bin_edges = np.histogram(value[['raw core']],bins=5)
+        print(hist, bin_edges)
+        fig = plt.figure()
+        ax=fig.add_subplot(211)
+        ax.bar(bin_edges[:-1], hist, width=100)
+        ax.set_title("Histogram with 5 bins")
+        fig.savefig('Results/%s/%d/%s/%s stimuli for %s, total clusters: %d, current cluster: %d' % (month,n_clusters,state,state,month,n_clusters, key))
+        
+#==============================================================================
+# def get_metrics(dataframe, centroids, labels, month, state, n_clusters, inertia_):
+#     cluster_points = {i: dataframe.iloc[np.where(labels == i)] for i in range(n_clusters)}
+#     metrics = []
+#     min_distance = float("inf")
+#     max_distance = float("-inf")
+#     
+# #==============================================================================
+# #     for centroid in centroids:
+# #         
+# #     for centroid, point in centroids, cluster_points.values():
+# #             dist = numpy.linalg.norm(point-centroid)
+# #             if dist < min_distance:
+# #                 min_distance = dist
+# #             if dist > max_distance:
+# #                 max_distance = dist
+# #==============================================================================
+# 
+#     
+#     return n_clusters, min_distance, max_distance, mean_distance, 
+#==============================================================================
 
 #run pre clusters
-for month, df in pre_intensities.items():
-    labels, centroids = run_kmeans(df, 5, month, "pre")
-    plot_clusters(df, labels, month, "pre")
-    print("checkpoint2")    
-
+for k in range(3,11):
+    
+    for month, df in pre_intensities.items():
+        directory = "Results/%s/%d/pre"%(month,k)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        labels, centroids, n_clusters, inertia_ = run_kmeans(df, k, month, "pre")
+        plot_clusters(df, labels, month, "pre", k)
+        plot_histogram(pre[month], labels, month, "pre", n_clusters)
+        #get_metrics(df, centroids, labels, month, "pre", n_clusters, inertia_)
+        print(inertia_, inertia_/len(labels))
 
 #run post clusters
-for month, df in post_intensities.items():
-    labels, centroids = run_kmeans(df, 5, month, "post")
-    plot_clusters(df, labels, month, "post") 
-    print("checkpoint3")    
+    for month, df in post_intensities.items():
+        directory = "Results/%s/%d/post"%(month,k)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        labels, centroids, n_clusters, inertia_ = run_kmeans(df, k, month, "post")
+        plot_clusters(df, labels, month, "post", k) 
+        plot_histogram(post[month], labels, month, "post", n_clusters)
+        #get_metrics(df, centroids, labels, month, "post", n_clusters, inertia_)
+        print(inertia_, inertia_/len(labels))
 
 
 
