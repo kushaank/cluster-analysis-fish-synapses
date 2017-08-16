@@ -1,0 +1,192 @@
+Results/2016-01-16_A/3/pre
+total distance: 7373251.49202,average distance: 6988.86397348
+Results/2017-02-02_A/3/pre
+total distance: 12435994.0599,average distance: 5061.45464385
+Results/2017-03-16_A/3/pre
+total distance: 6327548.71791,average distance: 4638.96533571
+Results/2017-03-17_B/3/pre
+total distance: 3625669.60442,average distance: 3757.17057453
+Results/2017-03-29_C/3/pre
+total distance: 1443201.40102,average distance: 3644.44798238
+Results/2017-04-12_A/3/pre
+total distance: 2028139.99127,average distance: 3545.69928544
+Results/2016-01-16_A/3/post
+total distance: 5782502.43697,average distance: 7558.82671499
+Results/2017-02-02_A/3/post
+total distance: 15175326.9605,average distance: 4993.52647597
+Results/2017-03-16_A/3/post
+total distance: 4063472.86736,average distance: 4374.02892073
+Results/2017-03-17_B/3/post
+total distance: 1482072.48394,average distance: 2900.33754196
+Results/2017-03-29_C/3/post
+total distance: 2524827.96107,average distance: 3969.8552847
+Results/2017-04-12_A/3/post
+total distance: 1541620.72743,average distance: 2865.46603612
+Results/2016-01-16_A/4/pre
+total distance: 5798053.88275,average distance: 5495.78567085
+Results/2017-02-02_A/4/pre
+total distance: 9515884.93985,average distance: 3872.96904349
+Results/2017-03-16_A/4/pre
+total distance: 4904829.68395,average distance: 3595.91619058
+Results/2017-03-17_B/4/pre
+total distance: 2917758.44903,average distance: 3023.58388501
+Results/2017-03-29_C/4/pre
+total distance: 1019075.30522,average distance: 2573.42248792
+Results/2017-04-12_A/4/pre
+total distance: 1425906.39598,average distance: 2492.84334961
+Results/2016-01-16_A/4/post
+total distance: 3961205.75215,average distance: 5178.04673483
+Results/2017-02-02_A/4/post
+total distance: 12044033.9347,average distance: 3963.15693802
+Results/2017-03-16_A/4/post
+total distance: 3268919.84838,average distance: 3518.75118233
+Results/2017-03-17_B/4/post
+total distance: 1090290.56493,average distance: 2133.64102725
+Results/2017-03-29_C/4/post
+total distance: 1828884.52315,average distance: 2875.60459615
+Results/2017-04-12_A/4/post
+total distance: 1201214.85376,average distance: 2232.74136387
+Results/2016-01-16_A/5/pre
+total distance: 4466035.55223,average distance: 4233.20905425
+Results/2017-02-02_A/5/pre
+total distance: 8107128.73667,average distance: 3299.60469543
+Results/2017-03-16_A/5/pre
+total distance: 4002989.27898,average distance: 2934.74287315
+Results/2017-03-17_B/5/pre
+total distance: 2432891.57768,average distance: 2521.13116858
+Results/2017-03-29_C/5/pre
+total distance: 828471.127207,average distance: 2092.09880608
+Results/2017-04-12_A/5/pre
+total distance: 1135976.73803,average distance: 1985.97331823
+Results/2016-01-16_A/5/post
+total distance: 3273693.79651,average distance: 4279.33829609
+Results/2017-02-02_A/5/post
+total distance: 10351792.4676,average distance: 3406.31538914
+Results/2017-03-16_A/5/post
+total distance: 2724662.05967,average distance: 2932.89780373
+Results/2017-03-17_B/5/post
+total distance: 794772.59212,average distance: 1555.32796892
+Results/2017-03-29_C/5/post
+total distance: 1377249.06662,average distance: 2165.48595381
+Results/2017-04-12_A/5/post
+total distance: 914259.510646,average distance: 1699.36712016
+Results/2016-01-16_A/6/pre
+total distance: 3771564.65622,average distance: 3574.9428021
+Results/2017-02-02_A/6/pre
+total distance: 7185264.85083,average distance: 2924.40571869
+Results/2017-03-16_A/6/pre
+total distance: 3574340.16767,average distance: 2620.48399389
+Results/2017-03-17_B/6/pre
+total distance: 2128573.86709,average distance: 2205.77602808
+Results/2017-03-29_C/6/pre
+total distance: 700372.955065,average distance: 1768.6185734
+Results/2017-04-12_A/6/pre
+total distance: 898975.930925,average distance: 1571.63624288
+Results/2016-01-16_A/6/post
+total distance: 2742833.92386,average distance: 3585.40382204
+Results/2017-02-02_A/6/post
+total distance: 9082670.87454,average distance: 2988.70380867
+Results/2017-03-16_A/6/post
+total distance: 2437293.18139,average distance: 2623.56639547
+Results/2017-03-17_B/6/post
+total distance: 627934.181903,average distance: 1228.83401547
+Results/2017-03-29_C/6/post
+total distance: 1146896.01372,average distance: 1803.29561905
+Results/2017-04-12_A/6/post
+total distance: 761505.123319,average distance: 1415.43703219
+Results/2016-01-16_A/7/pre
+total distance: 3178790.29022,average distance: 3013.07136514
+Results/2017-02-02_A/7/pre
+total distance: 6425289.01526,average distance: 2615.09524431
+Results/2017-03-16_A/7/pre
+total distance: 3231724.60334,average distance: 2369.29956257
+Results/2017-03-17_B/7/pre
+total distance: 1880055.7225,average distance: 1948.24427202
+Results/2017-03-29_C/7/pre
+total distance: 606526.071357,average distance: 1531.63149333
+Results/2017-04-12_A/7/pre
+total distance: 735620.138204,average distance: 1286.04919266
+Results/2016-01-16_A/7/post
+total distance: 2299372.61509,average distance: 3005.71583672
+Results/2017-02-02_A/7/post
+total distance: 8097623.07107,average distance: 2664.56830242
+Results/2017-03-16_A/7/post
+total distance: 2183400.67568,average distance: 2350.26983389
+Results/2017-03-17_B/7/post
+total distance: 573968.6502,average distance: 1123.22632133
+Results/2017-03-29_C/7/post
+total distance: 1007754.78548,average distance: 1584.52010296
+Results/2017-04-12_A/7/post
+total distance: 630332.310011,average distance: 1171.62139407
+Results/2016-01-16_A/8/pre
+total distance: 2823727.27975,average distance: 2676.51874858
+Results/2017-02-02_A/8/pre
+total distance: 5794047.68613,average distance: 2358.17976643
+Results/2017-03-16_A/8/pre
+total distance: 2951592.5448,average distance: 2163.92415308
+Results/2017-03-17_B/8/pre
+total distance: 1694022.75069,average distance: 1755.46399036
+Results/2017-03-29_C/8/pre
+total distance: 521355.044319,average distance: 1316.55314222
+Results/2017-04-12_A/8/pre
+total distance: 643537.653672,average distance: 1125.0658281
+Results/2016-01-16_A/8/post
+total distance: 2027575.87377,average distance: 2650.42597879
+Results/2017-02-02_A/8/post
+total distance: 7297028.59438,average distance: 2401.12819822
+Results/2017-03-16_A/8/post
+total distance: 1988209.39666,average distance: 2140.16081449
+Results/2017-03-17_B/8/post
+total distance: 517518.272671,average distance: 1012.75591521
+Results/2017-03-29_C/8/post
+total distance: 882907.512089,average distance: 1388.21935863
+Results/2017-04-12_A/8/post
+total distance: 558951.342093,average distance: 1038.94301504
+Results/2016-01-16_A/9/pre
+total distance: 2528207.24111,average distance: 2396.40496788
+Results/2017-02-02_A/9/pre
+total distance: 5191813.77661,average distance: 2113.07032015
+Results/2017-03-16_A/9/pre
+total distance: 2716443.58487,average distance: 1991.52755489
+Results/2017-03-17_B/9/pre
+total distance: 1540919.75033,average distance: 1596.80803143
+Results/2017-03-29_C/9/pre
+total distance: 458176.794742,average distance: 1157.01210793
+Results/2017-04-12_A/9/pre
+total distance: 591286.115801,average distance: 1033.71698567
+Results/2016-01-16_A/9/post
+total distance: 1861211.83603,average distance: 2432.9566484
+Results/2017-02-02_A/9/post
+total distance: 6557418.11601,average distance: 2157.7552208
+Results/2017-03-16_A/9/post
+total distance: 1798850.64702,average distance: 1936.33008291
+Results/2017-03-17_B/9/post
+total distance: 470713.608909,average distance: 921.16166127
+Results/2017-03-29_C/9/post
+total distance: 808077.335482,average distance: 1270.56184824
+Results/2017-04-12_A/9/post
+total distance: 503889.555999,average distance: 936.59768773
+Results/2016-01-16_A/10/pre
+total distance: 2343649.80666,average distance: 2221.46901106
+Results/2017-02-02_A/10/pre
+total distance: 4703301.46502,average distance: 1914.24561051
+Results/2017-03-16_A/10/pre
+total distance: 2491361.19544,average distance: 1826.51114035
+Results/2017-03-17_B/10/pre
+total distance: 1408386.45725,average distance: 1459.46783135
+Results/2017-03-29_C/10/pre
+total distance: 411479.616045,average distance: 1039.08993951
+Results/2017-04-12_A/10/pre
+total distance: 542685.673508,average distance: 948.751177461
+Results/2016-01-16_A/10/post
+total distance: 1703967.24485,average distance: 2227.40816321
+Results/2017-02-02_A/10/post
+total distance: 6051925.0866,average distance: 1991.41990345
+Results/2017-03-16_A/10/post
+total distance: 1644820.91331,average distance: 1770.52843198
+Results/2017-03-17_B/10/post
+total distance: 431136.032449,average distance: 843.71043532
+Results/2017-03-29_C/10/post
+total distance: 741655.33967,average distance: 1166.12474791
+Results/2017-04-12_A/10/post
+total distance: 448756.253692,average distance: 834.119430655
